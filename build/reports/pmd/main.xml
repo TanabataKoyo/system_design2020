@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.6.1" timestamp="2019-04-18T17:11:17.206">
+<file name="/Users/keychi/Gradle/StuInfo/src/main/java/dao/StudentDAO.java">
+<violation beginline="97" endline="97" begincolumn="25" endcolumn="61" rule="CheckResultSet" ruleset="Basic" package="dao" class="StudentDAO" method="searchStudent" variable="rs" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/basic.html#CheckResultSet" priority="3">
+Always check the return of one of the navigation method (next,previous,first,last) of a ResultSet.
+</violation>
+</file>
+</pmd>
