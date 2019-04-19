@@ -3,7 +3,6 @@
 <!-- beans.Studentをimportする -->
 <%@ page import= "beans.Student" %>
 
-
 <html>
 <head><title>結果</title></head>
 

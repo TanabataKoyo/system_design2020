@@ -16,7 +16,7 @@ public class StudentManager {
 	public StudentManager(){
 	}
 
-	//  追加する
+	//  追加
 	//  引数はStudentオブジェクト
 	public void registStudent(Student student){
 

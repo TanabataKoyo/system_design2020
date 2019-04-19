@@ -5,9 +5,12 @@
 package servlet;
 
 //自分が格納されているフォルダの外にある必要なクラス
+
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,45 +18,50 @@ import javax.servlet.http.HttpServletResponse;
 import beans.Student;
 import control.StudentManager;
 
-	//HttpServletを継承することで、このクラスはServletとして、働くことができる
-	public class SearchInfo extends HttpServlet{
+@WebServlet("/SearchInfo")
+//HttpServletを継承することで、このクラスはServletとして、働くことができる
+public class SearchInfo extends HttpServlet {
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	/**
-	*
-	*/
-		private static final long serialVersionUID = 1L;
 
-	//  doGetメソッドは使わないので、doPostメソッドへ転送
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		doPost(request, response);
-	}
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	//  requestオブジェクトには、フォームで入力された文字列などが格納されている。
-	//  responseオブジェクトを使って、次のページを表示する
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException{
+        // requestオブジェクトの文字エンコーディングの設定
+        request.setCharacterEncoding("UTF-8");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/searchStudent.jsp");
+        dispatcher.forward(request, response);
+    }
 
-		// requestオブジェクトの文字エンコーディングの設定
-		request.setCharacterEncoding("UTF-8");
+    //  requestオブジェクトには、フォームで入力された文字列などが格納されている。
+    //  responseオブジェクトを使って、次のページを表示する
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-		// requestオブジェクトから登録情報の取り出し
-		String stu_id = request.getParameter("stu_id");
+        // requestオブジェクトの文字エンコーディングの設定
+        request.setCharacterEncoding("UTF-8");
 
-		String stu_name = null;
-		String stu_birthplace = null;
+        // requestオブジェクトから登録情報の取り出し
+        String stu_id = request.getParameter("stu_id");
 
-		// studentのオブジェクトに情報を格納
-		Student student = new Student(stu_id, stu_name, stu_birthplace);
+        String stu_name = null;
+        String stu_birthplace = null;
 
-		//  StudentManagerオブジェクトの生成
-		StudentManager manager = new StudentManager();
+        // studentのオブジェクトに情報を格納
+        Student student = new Student(stu_id, stu_name, stu_birthplace);
 
-		//  学生の検索
-		student = manager.searchStudent(student);
-		//  requestオブジェクトにオブジェクトを登録
-		request.setAttribute("Student", student);
-		//  情報表示画面を表示する
-		//  forwardはrequestオブジェクトを引数として、次のページに渡すことができる
-		getServletContext().getRequestDispatcher("/jsp/showStudent.jsp").forward(request, response);
-		}
+        //  StudentManagerオブジェクトの生成
+        StudentManager manager = new StudentManager();
+
+        //  学生の検索
+        student = manager.searchStudent(student);
+        //  requestオブジェクトにオブジェクトを登録
+        request.setAttribute("Student", student);
+        //  情報表示画面を表示する
+        //  forwardはrequestオブジェクトを引数として、次のページに渡すことができる
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/showStudent.jsp");
+        dispatcher.forward(request, response);
+    }
 }
