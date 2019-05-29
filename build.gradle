@@ -30,7 +30,6 @@ apply plugin: 'eclipse'
 apply plugin: 'com.bmuschko.tomcat'
 
 //静的解析ツール
-apply plugin: 'pmd'
 sourceSets {
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
