@@ -21,7 +21,7 @@ public class StudentDAO{
 		"jdbc:mysql://localhost:3306/student?useUnicode=true&characterEncoding=Windows-31J";
 
 	//  データベース接続ドライバの名前を静的変数として記述
-	private final static String DRIVER_NAME = "com.mysql.jdbc.Driver";
+	private final static String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
 
 	//  データベースのユーザー名　（デフォルトではroot）
 	private final static String USER_NAME = "root";
@@ -38,7 +38,6 @@ public class StudentDAO{
 			return con;
 		} catch(ClassNotFoundException e){
 			System.out.println("Can't Find JDBC Driver.\n");
-
 		} catch(SQLException e){
 			System.out.println("Connect Error.\n");
 		}
