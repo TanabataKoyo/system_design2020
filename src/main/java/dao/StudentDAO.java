@@ -18,7 +18,7 @@ public class StudentDAO{
 
 	//  データベースの接続先アドレスを静的変数として記述
 	private final static String DRIVER_URL =
-		"jdbc:mysql://localhost:3306/student?useUnicode=true&characterEncoding=Windows-31J";
+		"jdbc:mysql://localhost:3306/student?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9:00&rewriteBatchedStatements=true";
 
 	//  データベース接続ドライバの名前を静的変数として記述
 	// private final static String DRIVER_NAME = "com.mysql.jdbc.Driver"; // Mysql5.系
