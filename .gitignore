@@ -214,4 +214,6 @@ gradle-app.setting
 ### Gradle Patch ###
 **/build/
 
+# idea
+.idea/
 # End of https://www.gitignore.io/api/java,gradle,eclipse,intellij,visualstudiocode

@@ -21,7 +21,8 @@ public class StudentDAO{
 		"jdbc:mysql://localhost:3306/student?useUnicode=true&characterEncoding=Windows-31J";
 
 	//  データベース接続ドライバの名前を静的変数として記述
-	private final static String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
+	// private final static String DRIVER_NAME = "com.mysql.jdbc.Driver"; // Mysql5.系
+	private final static String DRIVER_NAME = "com.mysql.cj.jdbc.Driver"; // Mysql8.系
 
 	//  データベースのユーザー名　（デフォルトではroot）
 	private final static String USER_NAME = "root";
