@@ -1,5 +1,5 @@
 //--------------------------------
-//	SearchInfo.java
+// SearchInfo.java
 //--------------------------------
 //　自分が格納されているフォルダ名
 package servlet;
@@ -19,13 +19,10 @@ import beans.Student;
 import control.StudentManager;
 
 @WebServlet("/SearchInfo")
-//HttpServletを継承することで、このクラスはServletとして、働くことができる
+// HttpServletを継承することで、このクラスはServletとして、働くことができる
 public class SearchInfo extends HttpServlet {
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
 
+    private static final long serialVersionUID = 1L;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -35,10 +32,9 @@ public class SearchInfo extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    //  requestオブジェクトには、フォームで入力された文字列などが格納されている。
-    //  responseオブジェクトを使って、次のページを表示する
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    // requestオブジェクトには、フォームで入力された文字列などが格納されている。
+    // responseオブジェクトを使って、次のページを表示する
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // requestオブジェクトの文字エンコーディングの設定
         request.setCharacterEncoding("UTF-8");
@@ -52,15 +48,15 @@ public class SearchInfo extends HttpServlet {
         // studentのオブジェクトに情報を格納
         Student student = new Student(stu_id, stu_name, stu_birthplace);
 
-        //  StudentManagerオブジェクトの生成
+        // StudentManagerオブジェクトの生成
         StudentManager manager = new StudentManager();
 
-        //  学生の検索
+        // 学生の検索
         student = manager.searchStudent(student);
-        //  requestオブジェクトにオブジェクトを登録
+        // requestオブジェクトにオブジェクトを登録
         request.setAttribute("Student", student);
-        //  情報表示画面を表示する
-        //  forwardはrequestオブジェクトを引数として、次のページに渡すことができる
+        // 情報表示画面を表示する
+        // forwardはrequestオブジェクトを引数として、次のページに渡すことができる
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/showStudent.jsp");
         dispatcher.forward(request, response);
     }
