@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
-<!-- beans.Studentをimportする -->
-<%@ page import= "beans.Student" %>
+<!-- model.Studentをimportする -->
+<%@ page import= "model.Student" %>
 
 <html>
   <head>

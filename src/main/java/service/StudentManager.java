@@ -1,13 +1,15 @@
 //　自分が格納されているフォルダ名
-package control;
+package service;
 
 //  自分が格納されているフォルダの外にある必要なクラス
 import java.sql.Connection;
 
-import beans.Student;
+import model.Student;
 import dao.StudentDAO;
 
-public class StudentManager {
+import javax.servlet.http.HttpServlet;
+
+public class StudentManager extends HttpServlet {
 
     // 属性
     private Connection connection = null;

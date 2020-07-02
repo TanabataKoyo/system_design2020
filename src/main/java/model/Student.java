@@ -1,5 +1,5 @@
 //  自分が格納されているフォルダ名
-package beans;
+package model;
 
 public class Student {
 

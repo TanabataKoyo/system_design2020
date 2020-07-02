@@ -2,7 +2,7 @@
 // SearchInfo.java
 //--------------------------------
 //　自分が格納されているフォルダ名
-package servlet;
+package controller;
 
 //自分が格納されているフォルダの外にある必要なクラス
 
@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.Student;
-import control.StudentManager;
+import model.Student;
+import service.StudentManager;
 
 @WebServlet("/SearchInfo")
 // HttpServletを継承することで、このクラスはServletとして、働くことができる

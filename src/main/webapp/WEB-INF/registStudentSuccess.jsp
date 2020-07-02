@@ -8,9 +8,11 @@
       ><FONT size="6"
         ><BR />
         <BR />
-        OK牧場！</FONT
+     　　登録が完了しました．</FONT
       ></P
     >
-    <a href="./index.jsp">トップに戻る</a>
+    <button>
+      <a href="/SystemDesign/ForLogin">ログイン画面へ</a>
+    </button>
   </BODY>
 </HTML>
