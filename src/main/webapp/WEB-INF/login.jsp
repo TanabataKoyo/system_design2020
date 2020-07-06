@@ -18,15 +18,26 @@
     <title>login</title>
 </head>
 <body>
-<div class="form">
-    <form action="/SE19G2/login" method="post" style="font-size:15pt">
-        <%if (err != null) {%>
-        <%}%><br>
-        ID <input type="text" id="mail" name="mail" style="font-size:15pt" value=<%=mail%> ><br>
-        パスワード <input type="password" id="pass" name="pass" style="font-size:15pt" ><br>
-        <button style="font-size:10pt">ログイン</button>
+<div class="uk-sticky">
+    <jsp:include page="topUikit.html"/>
+</div>
+<div class="uk-container">
+    <form action="/SystemDesign/DisplayShop" method="post" style="font-size:15pt">
+        <div class="uk-alert-danger">
+            <%if (err != null) {%>
+            <strong><%=err%></strong>
+            <%}%><br>
+        </div>
+        <div class="uk-margin-auto">
+            ID <input type="text" id="mail" name="mail" value=<%=mail%> >
+        </div>
+        <div class="uk-margin-auto">
+            パスワード <input type="password" id="pass" name="pass" >
+        </div>
+        <div class="uk-margin-auto">
+            <button class="uk-button-primary">ログイン</button>
+        </div>
     </form>
 </div>
-
 </body>
 </html>

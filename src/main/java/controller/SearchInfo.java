@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Student;
-import service.StudentManager;
+import service.UserService;
 
 @WebServlet("/SearchInfo")
 // HttpServletを継承することで、このクラスはServletとして、働くことができる
@@ -49,7 +49,7 @@ public class SearchInfo extends HttpServlet {
         Student student = new Student(stu_id, stu_name, stu_birthplace);
 
         // StudentManagerオブジェクトの生成
-        StudentManager manager = new StudentManager();
+        UserService manager = new UserService();
 
         // 学生の検索
         student = manager.searchStudent(student);

@@ -6,14 +6,14 @@ public class Student {
     // 属性
     private String studentID = null; // 書籍名
     private String studentName = null; // 著者名
-    private String studentBirthplace = null; // 出版社名
+    private String studentPass = null; // 出版社名
 
     // 初期値を引数に持ったコンストラクタ
-    public Student(String studentID, String studentName, String studentBirthplace) {
+    public Student(String studentID, String studentName, String studentPass) {
 
         this.studentID = studentID;
         this.studentName = studentName;
-        this.studentBirthplace = studentBirthplace;
+        this.studentPass = studentPass;
 
     }
 
@@ -32,8 +32,8 @@ public class Student {
         this.studentName = studentName;
     }
 
-    public void setStudentBirthplace(String studentBirthplace) {
-        this.studentBirthplace = studentBirthplace;
+    public void setStudentPass(String studentPass) {
+        this.studentPass = studentPass;
     }
 
     // getメソッド
@@ -46,8 +46,7 @@ public class Student {
         return this.studentName;
     }
 
-    public String getStudentBirthplace() {
-        return this.studentBirthplace;
+    public String getStudentPass() {
+        return this.studentPass;
     }
-
 }

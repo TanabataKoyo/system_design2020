@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Student;
-import service.StudentManager;
+import service.UserService;
 
 //アノテーションの記述
 //jspで示してあげると、jspから呼び出さられる
@@ -46,24 +46,25 @@ public class RegistInfo extends HttpServlet {
         // requestオブジェクトから登録情報の取り出し
         String stu_name = request.getParameter("name");
         String stu_id = request.getParameter("mail");
-        String stu_birthplace = request.getParameter("pass");
+        String stu_pass = request.getParameter("pass");
 
         // コンソールに確認するために出力
         System.out.println("取得した文字列は" + stu_id + "です！");
         System.out.println("取得した文字列は" + stu_name + "です！");
-        System.out.println("取得した文字列は" + stu_birthplace + "です！");
+        System.out.println("取得した文字列は" + stu_pass + "です！");
 
         // studentオブジェクトに情報を格納
-        Student student = new Student(stu_id, stu_name, stu_birthplace);
+        Student student = new Student(stu_id, stu_name, stu_pass);
 
         // StudentManagerオブジェクトの生成
-        StudentManager manager = new StudentManager();
+        UserService userService = new UserService();
 
         // 登録
-        manager.registStudent(student);
+        userService.registStudent(student);
 
         // 成功画面を表示する
         // System.out.println("OK牧場");
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/registStudentSuccess.jsp");
-        dispatcher.forward(request, response);    }
+        dispatcher.forward(request, response);
+    }
 }

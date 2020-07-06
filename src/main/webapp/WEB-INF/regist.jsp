@@ -14,17 +14,31 @@
 <%--<%int errorFlag = (int) request.getAttribute("errorFlag");%>--%>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/vali.css" >
-
-<div class="form">
-<%--    <%if(errorFlag!=1){%>--%>
-
-    <form action="/SystemDesign/RegistInfo" method="post">
-        氏名<input type="text" placeholder="氏名" id="name" name="name" maxlength="20" minlength="1" pattern=".*\S+.*" required><br>
-        ユーザーID<input type="email" placeholder="メールアドレスを入力してください" id="mail" name="mail" size="40" required><br>
-        パスワード<input type="password" placeholder="8~16字半角英数" id="pass" name="pass"  maxlength="16" minlength="8" pattern=".*\S+.*" required><br>
-        <button>登録</button>
-    </form>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>新規登録</title>
+</head>
+<body>
+<div class="uk-sticky">
+    <jsp:include page="topUikit.html"/>
+</div>
+<div class="uk-container">
+    <div class="form">
+        <%--    <%if(errorFlag!=1){%>--%>
+        <form action="/SystemDesign/RegistInfo" method="post">
+            <div class="uk-margin-auto">
+                氏名<input type="text" placeholder="氏名" id="name" name="name" maxlength="20" minlength="1" pattern=".*\S+.*" required>
+            </div>
+            <div class="uk-margin-auto">
+                ユーザーID<input type="email" placeholder="メールアドレスを入力してください" id="mail" name="mail" size="30" required>
+            </div>
+            <div class="uk-margin-auto">
+                パスワード<input type="password" placeholder="8~16字半角英数" id="pass" name="pass"  maxlength="16" minlength="8" pattern=".*\S+.*" required>
+            </div>
+            <div class="uk-margin-auto">
+                <button class="uk-button">登録</button>
+            </div>
+        </form>
 <%--    <%}else{%>--%>
 
 <%--    <form action="/SystemDesign/registration" method="post">--%>
@@ -35,6 +49,8 @@
 <%--        <button>登録</button>--%>
 <%--    </form>--%>
 <%--    <%}%>--%>
+    </div>
 </div>
-
+</body>
+</html>
 
