@@ -35,4 +35,12 @@ public class CommentService extends HttpServlet {
         this.connection = null;
         return commentList;
     }
+
+    public void deleteComment(Comment comment){
+        CommentDao commentDao = new CommentDao();
+        this.connection = commentDao.createConnection();
+        commentDao.deleteComment(comment,this.connection);
+        commentDao.closeConnection(this.connection);
+        this.connection = null;
+    }
 }

@@ -58,6 +58,7 @@
         <tr>
             <th class="uk-width-small">ユーザー</th>
             <th class="uk-table-expand">コメント</th>
+            <th class="uk-width-small">削除</th>
         </tr>
         </thead>
 
@@ -72,6 +73,16 @@
             </td>
             <td class="uk-text-large">
                 <a><%=comment.getCommentDetail("commentDetail")%></a>
+            </td>
+            <td>
+                <%if (comment.getCommentAuthorId("commentAuthorId").equals(student.getStudentID())){%>
+                <form action="/SystemDesign/DeleteComment" method="post">
+                    <input type="hidden" name="commentId" value=<%=comment.getCommentId(1)%>>
+                    <button type="submit" class="uk-icon-button" uk-icon="trash"></button>
+                </form>
+                <%}else {
+
+                }%>
             </td>
         </tr>
         </tbody>
