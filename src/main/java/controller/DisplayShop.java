@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @WebServlet("/DisplayShop")
@@ -27,6 +29,11 @@ public class DisplayShop extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         response.setContentType("text/html; charset=utf-8");
+        ShopService shopService = new ShopService();
+        List<Shop> shopList = shopService.shopList();
+        Collections.reverse(shopList);
+        request.setAttribute("shopList",shopList);
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/showPosted.jsp");
         dispatcher.forward(request, response);
     }
@@ -36,7 +43,6 @@ public class DisplayShop extends HttpServlet {
         try {
             String mail = request.getParameter("mail");
             String pass = request.getParameter("pass");
-
             UserService userService = new UserService();
             Student student = userService.login(mail, pass);
 
@@ -51,9 +57,9 @@ public class DisplayShop extends HttpServlet {
 
             ShopService shopService = new ShopService();
             List<Shop> shopList = shopService.shopList();
-
+            Collections.reverse(shopList);
             request.setAttribute("shopList",shopList);
-
+            response.setContentType("text/html; charset=utf-8");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/showPosted.jsp");
             dispatcher.forward(request, response);
 

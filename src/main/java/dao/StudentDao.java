@@ -7,11 +7,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import model.Shop;
 import utility.DriverAccessor;
 import model.Student;
 
-public class StudentDAO extends DriverAccessor{
+public class StudentDao extends DriverAccessor{
     public static final String REGIST_STUDENT = "insert into student_info values(?, ?, ?)";
     public static final String SEARCH_STUDENT =  "select * from student_info where student_id = ?";
     public static final String LOGIN = "select * from student_info where student_id = ?";
@@ -45,6 +48,7 @@ public class StudentDAO extends DriverAccessor{
             statement.setString(1, student.getStudentID());
             ResultSet rs = statement.executeQuery();
 
+
             rs.first();
             // rsからそれぞれの情報を取り出し、Studentオブジェクトに設定する
             student.setStudentName(rs.getString("student_name"));
@@ -67,7 +71,6 @@ public class StudentDAO extends DriverAccessor{
     //ログイン
     public Student login(String mail, Connection connection) {
         try {
-            // 実行結果はrsに格納される
             PreparedStatement statement = connection.prepareStatement(LOGIN);
             statement.setString(1, mail);
             ResultSet rs = statement.executeQuery();
@@ -78,20 +81,16 @@ public class StudentDAO extends DriverAccessor{
             if (rs.first()) {
                 student.setStudentName(rs.getString("student_name"));
                 student.setStudentPass(rs.getString("student_pass"));
+                student.setStudentID(rs.getString("student_id"));
             } else {
-
             }
-            // 終了処理
             statement.close();
             rs.close();
-            // Studentオブジェクトを返す
             return student;
         } catch (SQLException e) {
-
             // エラーが発生した場合、エラーの原因を出力し、nullオブジェクトを返す
             e.printStackTrace();
             return null;
-
         } finally {
         }
     }

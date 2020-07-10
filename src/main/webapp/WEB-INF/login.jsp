@@ -23,11 +23,11 @@
 </div>
 <div class="uk-container">
     <form action="/SystemDesign/DisplayShop" method="post" style="font-size:15pt">
+        <%if (err != null) {%>
         <div class="uk-alert-danger">
-            <%if (err != null) {%>
             <strong><%=err%></strong>
-            <%}%><br>
         </div>
+        <%}%><br>
         <div class="uk-margin-auto">
             ID <input type="text" id="mail" name="mail" value=<%=mail%> >
         </div>

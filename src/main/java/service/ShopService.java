@@ -3,13 +3,10 @@ package service;
 import java.sql.Connection;
 import java.util.List;
 
-import dao.StudentDAO;
-import model.Student;
 import model.Shop;
 import dao.ShopDao;
 
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpSession;
 
 public class ShopService extends HttpServlet{
     private Connection connection = null;
@@ -24,5 +21,21 @@ public class ShopService extends HttpServlet{
         shopDao.closeConnection(this.connection);
         this.connection = null;
         return shopList;
+    }
+
+    public void registShop(Shop shop){
+        ShopDao shopDao = new ShopDao();
+        this.connection = shopDao.createConnection();
+        shopDao.registShop(shop,this.connection);
+        shopDao.closeConnection(this.connection);
+        this.connection = null;
+    }
+
+    public void deleteShop(Shop shop){
+        ShopDao shopDao = new ShopDao();
+        this.connection = shopDao.createConnection();
+        shopDao.deleteShop(shop,this.connection);
+        shopDao.closeConnection(this.connection);
+        this.connection = null;
     }
 }

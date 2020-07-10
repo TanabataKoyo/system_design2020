@@ -11,27 +11,18 @@ pageEncoding="UTF-8"%>
     <jsp:include page="WEB-INF/topUikit.html"/>
 </div>
 <div class="uk-container">
-    <div class="uk-card uk-card-default uk-card-large uk-card-body">
-        <div class="login">
+    <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+        <div class="uk-flex-center">
             <form action="/SystemDesign/ForLogin">
                 <button class="uk-button-large uk-button-primary">ログイン</button>
             </form>
         </div>
-        <div class="new">
+        <div class="uk-align-center">
             <form action="/SystemDesign/RegistInfo">
                 <button class="uk-button-large uk-button-danger">新規登録</button>
             </form>
         </div>
     </div>
 </div>
-<form action="./RegistInfo" method="post">
-      ID <input type="text" name="stu_id" /><br />
-      名前<input type="text" name="stu_name" /><br />
-      出身地<input type="text" name="stu_birthplace" /><br />
-      <input type="submit" name="OK" />
-    </form>
-    <br />
-    学籍番号によるサーチ
-    <a href="/SystemDesign/SearchInfo">Click here! </a>
-  </body>
+</body>
 </html>
