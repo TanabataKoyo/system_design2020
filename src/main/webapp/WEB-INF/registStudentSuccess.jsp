@@ -3,9 +3,9 @@
   <HEAD>
     <TITLE></TITLE>
   </HEAD>
-  <BODY bgcolor="gold">
+  <BODY>
     <P align="center"
-      ><FONT size="6"
+      ><FONT size="4"
         ><BR />
         <BR />
      　　登録が完了しました．</FONT
